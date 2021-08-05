@@ -1,9 +1,10 @@
 # Collatz conjecture demonstration program
-Copyright (C) 2021, Nicolas Mailloux (<nicolecrivain@gmail.com>)
+Copyright © 2021, Nicolas Mailloux (<nicolecrivain@gmail.com>)
+<br>
 Licensed under the MIT license
 
 ## Description
-Takes integer (unsigned long) as its only argument and applies the '3n + 1' problem to it.
+Takes integer (unsigned long) as its only argument and applies the `3n + 1` problem to it.
 ## Usage
 ```
 3x1 <UNSIGNED LONG>
