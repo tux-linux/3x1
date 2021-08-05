@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
                 if(number % 2 == 0) {
                     // Number is even
                     result = number / 2;
+                    operationsCount++;
                     // Prevent garbled formatting when number is only one digit long
                     if(countDigits(number) <= 1) {
                         printf("\x1b[34mEVEN\x1b[0m\t %lu / 2 \t\t= \x1b[1m%lu\x1b[0m\n", number, result);
@@ -50,17 +51,18 @@ int main(int argc, char *argv[]) {
                     }
                     number = result;
                     if(number == 1) {
-                        printf("\x1b[1m---- Loop reached ----\x1b[0m\n");
+                        printStatistics();
                         break;
                     }
                 }
                 else {
                     // Number is odd
                     result = 3 * number + 1;
+                    operationsCount++;
                     printf("\x1b[96mODD\x1b[0m\t 3 * %lu + 1 \t= \x1b[1m%lu\x1b[0m\n", number, result);
                     number = result;
                     if(number == 1) {
-                        printf("\x1b[1m---- Loop reached ----\x1b[0m\n");
+                        printStatistics();
                         break;
                     }
                 }
@@ -83,6 +85,11 @@ void printHelp(bool printStdErr) {
 
 void printTableDescription() {
     printf("\x1b[1mType\t Operation\tResult\x1b[0m\n");
+}
+
+void printStatistics() {
+    printf("\x1b[1m---- Loop reached ----\x1b[0m\n");
+    printf("Operations count: \x1b[1m%lu\x1b[0m\n", operationsCount);
 }
 
 void printErrorHeader() {
